@@ -5,29 +5,44 @@
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
 	<style>
-		.box {
-			width: 70px;
+		.img {
+			width: 150px;
 			height: 70px;
 			background-color: white;
+			background: transparent;
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
 			display: block;
 			position: absolute;
+			animation: rotation 1s infinite linear;
 			top: 100px;
 			left: 0px;  /* <--- Change me! */
 		}
+		.rotate {
+			animation: rotation 1s infinite linear;
+		}
+		@keyframes rotation {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(359deg);
+			}
+		}
 		.board{
-			height: 100vh;
 			background-color: black;
+			background-image: url('https://images.pexels.com/photos/1004665/pexels-photo-1004665.jpeg?cs=srgb&dl=pexels-eberhard-grossgasteiger-1004665.jpg&fm=jpg');
+			scale: 80%
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
 </head>
-<body class="board">
+ 	<body class="board">
 	<!-- HTML for the box -->
 	<div class="box">?</div>
+	<img class="img" src="https://pngimg.com/d/snowball_PNG7.png">
 
 	<script>
 		(function(){
@@ -38,7 +53,7 @@
 			/////////////////// SETUP DO NOT DELETE //////////////////////////
 			//////////////////////////////////////////////////////////////////
 			
-			var box = jQuery('.box');	// reference to the HTML .box element
+			var box = jQuery('.img');	// reference to the HTML .box element
 			var board = jQuery('.board');	// reference to the HTML .board element
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 
